@@ -1,0 +1,54 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://themes/blue.theme" type="Theme" id=1]
+[ext_resource path="res://themes/fonts/Xolonium-Regular.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://assets/icons/sheet_white1x.png" type="Texture" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 30
+font_data = ExtResource( 2 )
+
+[node name="Stage" type="Panel"]
+margin_right = 64.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 64, 64 )
+theme = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+visible = false
+anchor_left = 0.00703311
+anchor_top = 0.00703287
+anchor_right = 1.00703
+anchor_bottom = 1.00703
+margin_left = -0.450119
+margin_right = -0.450119
+custom_fonts/font = SubResource( 1 )
+text = "10"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Lock" type="Sprite" parent="."]
+position = Vector2( 32.4079, 32.4079 )
+texture = ExtResource( 3 )
+region_enabled = true
+region_rect = Rect2( 300, 0, 50, 50 )
+
+[node name="Complete" type="Sprite" parent="."]
+visible = false
+position = Vector2( 32.4079, 32.4079 )
+texture = ExtResource( 3 )
+region_enabled = true
+region_rect = Rect2( 450, 0, 50, 50 )
+
+[node name="RotateColorWheel" type="Sprite" parent="."]
+visible = false
+position = Vector2( 32.4079, 32.4079 )
+texture = ExtResource( 3 )
+region_enabled = true
+region_rect = Rect2( 200, 50, 50, 50 )

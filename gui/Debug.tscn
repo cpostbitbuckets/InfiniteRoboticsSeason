@@ -1,0 +1,123 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://gui/Debug.gd" type="Script" id=1]
+[ext_resource path="res://themes/blue.theme" type="Theme" id=2]
+[ext_resource path="res://themes/red.theme" type="Theme" id=3]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0, 0.290196, 0.54902, 1 )
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color( 0, 0, 0, 1 )
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="Theme" id=2]
+Panel/styles/panel = SubResource( 1 )
+
+[node name="Debug" type="MarginContainer"]
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 128.0
+theme = ExtResource( 2 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Alliances" type="HBoxContainer" parent="."]
+margin_right = 226.0
+margin_bottom = 540.0
+
+[node name="Blue" type="VBoxContainer" parent="Alliances"]
+margin_right = 111.0
+margin_bottom = 540.0
+
+[node name="BlueLowerButton" type="Button" parent="Alliances/Blue"]
+margin_right = 111.0
+margin_bottom = 19.0
+theme = SubResource( 2 )
+text = "Score Lower"
+
+[node name="BlueHighButton" type="Button" parent="Alliances/Blue"]
+margin_top = 23.0
+margin_right = 111.0
+margin_bottom = 42.0
+theme = SubResource( 2 )
+text = "Score High"
+
+[node name="BlueInnerButton" type="Button" parent="Alliances/Blue"]
+margin_top = 46.0
+margin_right = 111.0
+margin_bottom = 65.0
+theme = SubResource( 2 )
+text = "Score Inner"
+
+[node name="BlueSpinColorWheel" type="Button" parent="Alliances/Blue"]
+margin_top = 69.0
+margin_right = 111.0
+margin_bottom = 88.0
+theme = SubResource( 2 )
+text = "Spin Wheel"
+
+[node name="BluePositionColorWheel" type="Button" parent="Alliances/Blue"]
+margin_top = 92.0
+margin_right = 111.0
+margin_bottom = 111.0
+theme = SubResource( 2 )
+text = "Position Wheel"
+
+[node name="Red" type="VBoxContainer" parent="Alliances"]
+margin_left = 115.0
+margin_right = 226.0
+margin_bottom = 540.0
+theme = ExtResource( 3 )
+
+[node name="RedLowerButton" type="Button" parent="Alliances/Red"]
+margin_right = 111.0
+margin_bottom = 19.0
+theme = SubResource( 2 )
+text = "Score Lower"
+
+[node name="RedHighButton" type="Button" parent="Alliances/Red"]
+margin_top = 23.0
+margin_right = 111.0
+margin_bottom = 42.0
+theme = SubResource( 2 )
+text = "Score High"
+
+[node name="RedInnerButton" type="Button" parent="Alliances/Red"]
+margin_top = 46.0
+margin_right = 111.0
+margin_bottom = 65.0
+theme = SubResource( 2 )
+text = "Score Inner"
+
+[node name="RedSpinColorWheel" type="Button" parent="Alliances/Red"]
+margin_top = 69.0
+margin_right = 111.0
+margin_bottom = 88.0
+theme = SubResource( 2 )
+text = "Spin Wheel"
+
+[node name="RedPositionColorWheel" type="Button" parent="Alliances/Red"]
+margin_top = 92.0
+margin_right = 111.0
+margin_bottom = 111.0
+theme = SubResource( 2 )
+text = "Position Wheel"
+[connection signal="pressed" from="Alliances/Blue/BlueLowerButton" to="." method="_on_BlueLowerButton_pressed"]
+[connection signal="pressed" from="Alliances/Blue/BlueHighButton" to="." method="_on_BlueHighButton_pressed"]
+[connection signal="pressed" from="Alliances/Blue/BlueInnerButton" to="." method="_on_BlueInnerButton_pressed"]
+[connection signal="pressed" from="Alliances/Blue/BlueSpinColorWheel" to="." method="_on_BlueSpinColorWheel_pressed"]
+[connection signal="pressed" from="Alliances/Blue/BluePositionColorWheel" to="." method="_on_BluePositionColorWheel_pressed"]
+[connection signal="pressed" from="Alliances/Red/RedLowerButton" to="." method="_on_RedLowerButton_pressed"]
+[connection signal="pressed" from="Alliances/Red/RedHighButton" to="." method="_on_RedHighButton_pressed"]
+[connection signal="pressed" from="Alliances/Red/RedInnerButton" to="." method="_on_RedInnerButton_pressed"]
+[connection signal="pressed" from="Alliances/Red/RedSpinColorWheel" to="." method="_on_RedSpinColorWheel_pressed"]
+[connection signal="pressed" from="Alliances/Red/RedPositionColorWheel" to="." method="_on_RedPositionColorWheel_pressed"]

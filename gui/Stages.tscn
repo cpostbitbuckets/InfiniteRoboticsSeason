@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://gui/Stages.gd" type="Script" id=1]
+[ext_resource path="res://gui/Stage.tscn" type="PackedScene" id=2]
+[ext_resource path="res://gui/Level.tscn" type="PackedScene" id=3]
+
+[node name="Stages" type="VBoxContainer"]
+margin_right = 256.0
+margin_bottom = 128.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Level" parent="." instance=ExtResource( 3 )]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+margin_top = 20.0
+margin_right = 256.0
+margin_bottom = 84.0
+alignment = 1
+
+[node name="Stage1" parent="HBoxContainer" instance=ExtResource( 2 )]
+margin_left = 28.0
+margin_right = 92.0
+
+[node name="Stage2" parent="HBoxContainer" instance=ExtResource( 2 )]
+margin_left = 96.0
+margin_right = 160.0
+
+[node name="Stage3" parent="HBoxContainer" instance=ExtResource( 2 )]
+margin_left = 164.0
+margin_right = 228.0

@@ -1,0 +1,113 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://matches/Ball.tscn" type="PackedScene" id=1]
+[ext_resource path="res://robots/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://matches/HUD.tscn" type="PackedScene" id=3]
+[ext_resource path="res://matches/ScoreKeeper.tscn" type="PackedScene" id=4]
+[ext_resource path="res://matches/Field.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scripts/Game.gd" type="Script" id=6]
+[ext_resource path="res://scripts/MatchState.gd" type="Script" id=7]
+[ext_resource path="res://gui/Debug.tscn" type="PackedScene" id=8]
+[ext_resource path="res://robots/AIRobot.tscn" type="PackedScene" id=9]
+
+[node name="Match" type="Node2D"]
+script = ExtResource( 6 )
+
+[node name="HUD" parent="." instance=ExtResource( 3 )]
+margin_right = 1134.0
+margin_bottom = 128.0
+
+[node name="Field" parent="." instance=ExtResource( 5 )]
+position = Vector2( 0, 128 )
+
+[node name="Player" parent="Field" instance=ExtResource( 2 )]
+position = Vector2( 857.412, 375.419 )
+id = 1
+
+[node name="RedAIRobot1" parent="Field" instance=ExtResource( 9 )]
+position = Vector2( 275.183, 168.062 )
+alliance = 0
+
+[node name="BlueAIRobot1" parent="Field" instance=ExtResource( 9 )]
+position = Vector2( 862.589, 69.3961 )
+
+[node name="BlueAIRobot2" parent="Field" instance=ExtResource( 9 )]
+position = Vector2( 861.442, 465.207 )
+
+[node name="RedAIRobot2" parent="Field" instance=ExtResource( 9 )]
+position = Vector2( 276.33, 71.6906 )
+rotation = 3.14159
+alliance = 0
+
+[node name="RedAIRobot3" parent="Field" instance=ExtResource( 9 )]
+position = Vector2( 272.888, 469.796 )
+rotation = -3.14159
+alliance = 0
+
+[node name="Ball" parent="Field" instance=ExtResource( 1 )]
+position = Vector2( 451.473, 59.2696 )
+
+[node name="Ball2" parent="Field" instance=ExtResource( 1 )]
+position = Vector2( 504.807, 59.6736 )
+
+[node name="Ball3" parent="Field" instance=ExtResource( 1 )]
+position = Vector2( 556.928, 59.2696 )
+
+[node name="Ball4" parent="Field" instance=ExtResource( 1 )]
+position = Vector2( 656.323, 45.9362 )
+
+[node name="Ball5" parent="Field" instance=ExtResource( 1 )]
+position = Vector2( 655.515, 74.6232 )
+
+[node name="Ball10" parent="Field" instance=ExtResource( 1 )]
+position = Vector2( 665.598, 461.513 )
+
+[node name="Ball9" parent="Field" instance=ExtResource( 1 )]
+position = Vector2( 558.555, 461.05 )
+
+[node name="Ball8" parent="Field" instance=ExtResource( 1 )]
+position = Vector2( 612.41, 460.646 )
+
+[node name="Ball7" parent="Field" instance=ExtResource( 1 )]
+position = Vector2( 463.004, 475.053 )
+
+[node name="Ball11" parent="Field" instance=ExtResource( 1 )]
+position = Vector2( 449.133, 281.734 )
+
+[node name="Ball12" parent="Field" instance=ExtResource( 1 )]
+position = Vector2( 438.73, 260.061 )
+
+[node name="Ball13" parent="Field" instance=ExtResource( 1 )]
+position = Vector2( 429.194, 235.788 )
+
+[node name="Ball14" parent="Field" instance=ExtResource( 1 )]
+position = Vector2( 438.73, 198.511 )
+
+[node name="Ball15" parent="Field" instance=ExtResource( 1 )]
+position = Vector2( 463.87, 189.842 )
+
+[node name="Ball16" parent="Field" instance=ExtResource( 1 )]
+position = Vector2( 668.46, 237.522 )
+
+[node name="Ball17" parent="Field" instance=ExtResource( 1 )]
+position = Vector2( 680.596, 263.529 )
+
+[node name="Ball18" parent="Field" instance=ExtResource( 1 )]
+position = Vector2( 689.265, 284.334 )
+
+[node name="Ball19" parent="Field" instance=ExtResource( 1 )]
+position = Vector2( 677.995, 322.478 )
+
+[node name="Ball20" parent="Field" instance=ExtResource( 1 )]
+position = Vector2( 654.589, 330.28 )
+
+[node name="Ball6" parent="Field" instance=ExtResource( 1 )]
+position = Vector2( 462.196, 448.258 )
+
+[node name="ScoreKeeper" parent="." instance=ExtResource( 4 )]
+
+[node name="MatchState" type="Node" parent="."]
+script = ExtResource( 7 )
+
+[node name="Debug" parent="." instance=ExtResource( 8 )]
+[connection signal="shoot" from="Field/Player" to="." method="_on_Player_shoot"]

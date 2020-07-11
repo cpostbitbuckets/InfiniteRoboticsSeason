@@ -1,0 +1,153 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://gui/Score.gd" type="Script" id=1]
+[ext_resource path="res://themes/red_box_round.stylebox" type="StyleBox" id=2]
+[ext_resource path="res://themes/blue.theme" type="Theme" id=3]
+[ext_resource path="res://themes/fonts/Xolonium-Regular.ttf" type="DynamicFontData" id=4]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 1, 1, 1, 1 )
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 40
+font_data = ExtResource( 4 )
+
+[node name="Score" type="HBoxContainer"]
+margin_left = 260.0
+margin_right = 874.0
+margin_bottom = 128.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource( 3 )
+alignment = 1
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RedTeams" type="VBoxContainer" parent="."]
+margin_left = 5.0
+margin_right = 205.0
+margin_bottom = 128.0
+
+[node name="Team1" type="Label" parent="RedTeams"]
+margin_right = 200.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 200, 20 )
+custom_styles/normal = SubResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Team 1"
+valign = 1
+
+[node name="Team2" type="Label" parent="RedTeams"]
+margin_top = 24.0
+margin_right = 200.0
+margin_bottom = 44.0
+rect_min_size = Vector2( 200, 20 )
+custom_styles/normal = SubResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Team 1"
+valign = 1
+
+[node name="Team3" type="Label" parent="RedTeams"]
+margin_top = 48.0
+margin_right = 200.0
+margin_bottom = 68.0
+rect_min_size = Vector2( 200, 20 )
+custom_styles/normal = SubResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Team 1"
+valign = 1
+
+[node name="TeamScores" type="VBoxContainer" parent="."]
+margin_left = 209.0
+margin_right = 405.0
+margin_bottom = 128.0
+
+[node name="MatchTime" type="ProgressBar" parent="TeamScores"]
+margin_right = 196.0
+margin_bottom = 2.0
+percent_visible = false
+
+[node name="TeamScores" type="HBoxContainer" parent="TeamScores"]
+margin_top = 6.0
+margin_right = 196.0
+margin_bottom = 102.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RedScore" type="Panel" parent="TeamScores/TeamScores"]
+margin_right = 96.0
+margin_bottom = 96.0
+rect_min_size = Vector2( 96, 96 )
+custom_styles/panel = ExtResource( 2 )
+
+[node name="Label" type="Label" parent="TeamScores/TeamScores/RedScore"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "0"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BlueScore" type="Panel" parent="TeamScores/TeamScores"]
+margin_left = 100.0
+margin_right = 196.0
+margin_bottom = 96.0
+rect_min_size = Vector2( 96, 96 )
+
+[node name="Label" type="Label" parent="TeamScores/TeamScores/BlueScore"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "0"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BlueTeams" type="VBoxContainer" parent="."]
+margin_left = 409.0
+margin_right = 609.0
+margin_bottom = 128.0
+
+[node name="Team1" type="Label" parent="BlueTeams"]
+margin_right = 200.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 200, 20 )
+custom_styles/normal = SubResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Team 1"
+valign = 1
+
+[node name="Team2" type="Label" parent="BlueTeams"]
+margin_top = 24.0
+margin_right = 200.0
+margin_bottom = 44.0
+rect_min_size = Vector2( 200, 20 )
+custom_styles/normal = SubResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Team 1"
+valign = 1
+
+[node name="Team3" type="Label" parent="BlueTeams"]
+margin_top = 48.0
+margin_right = 200.0
+margin_bottom = 68.0
+rect_min_size = Vector2( 200, 20 )
+custom_styles/normal = SubResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Team 1"
+valign = 1

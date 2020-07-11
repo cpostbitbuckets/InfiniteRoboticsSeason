@@ -1,0 +1,83 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://assets/2020-Field-Wide-Flat-ShieldColorWheel.png" type="Texture" id=1]
+[ext_resource path="res://scripts/Field.gd" type="Script" id=2]
+[ext_resource path="res://assets/2020-Field-Wide-Flat.png" type="Texture" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 569.511, 14.0786 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 31.3748, 3.51979 )
+
+[sub_resource type="RectangleShape2D" id=3]
+
+[node name="Field" type="StaticBody2D"]
+script = ExtResource( 2 )
+
+[node name="WallsSprite" type="Sprite" parent="."]
+texture = ExtResource( 3 )
+centered = false
+
+[node name="ShieldGenSprite" type="Sprite" parent="."]
+z_index = 1
+texture = ExtResource( 1 )
+centered = false
+
+[node name="TopWall" type="CollisionShape2D" parent="."]
+position = Vector2( 566.009, 13.1308 )
+shape = SubResource( 1 )
+
+[node name="BottomWall" type="CollisionShape2D" parent="."]
+position = Vector2( 566.7, 526.616 )
+shape = SubResource( 1 )
+
+[node name="LeftWall" type="CollisionPolygon2D" parent="."]
+polygon = PoolVector2Array( 113.823, 20.059, 137.015, 26.9865, 97.8713, 132.559, 94.8314, 131.672, 93.0582, 205.388, 96.9846, 205.768, 100.239, 409.413, 137.716, 511.351, 110.733, 520.346, 76.2539, 409.413, 69.3463, 123.667 )
+
+[node name="RightWall" type="CollisionPolygon2D" parent="."]
+position = Vector2( 1136.21, 540.089 )
+rotation = -3.14159
+polygon = PoolVector2Array( 113.823, 20.059, 137.015, 26.9865, 97.8713, 132.559, 94.8314, 131.672, 93.0582, 205.388, 96.9846, 205.768, 100.239, 409.413, 137.716, 511.351, 110.733, 520.346, 76.2539, 409.413, 69.3463, 123.667 )
+
+[node name="RedGoal" type="Area2D" parent="."]
+
+[node name="RedGoalCollision" type="CollisionPolygon2D" parent="RedGoal"]
+position = Vector2( 1137.53, 536.143 )
+rotation = 3.14159
+polygon = PoolVector2Array( 1040.16, 402.852, 1040.54, 331.036, 1044.09, 331.289, 1042.57, 404.372 )
+
+[node name="BlueGoal" type="Area2D" parent="."]
+
+[node name="BlueGoalCollision" type="CollisionPolygon2D" parent="BlueGoal"]
+position = Vector2( -1.5498, 4.16901 )
+polygon = PoolVector2Array( 1040.16, 402.852, 1040.54, 330, 1044.75, 329.7, 1042.57, 404.372 )
+
+[node name="RedColorWheel" type="CollisionShape2D" parent="."]
+position = Vector2( 636.267, 109.073 )
+shape = SubResource( 2 )
+
+[node name="BlueColorWheel" type="CollisionShape2D" parent="."]
+position = Vector2( 501.242, 431.141 )
+shape = SubResource( 2 )
+
+[node name="ShieldFoot1" type="CollisionShape2D" parent="."]
+position = Vector2( 501.989, 415.007 )
+rotation = -0.389213
+shape = SubResource( 3 )
+
+[node name="ShieldFoot2" type="CollisionShape2D" parent="."]
+position = Vector2( 419.693, 217.497 )
+rotation = -0.389213
+shape = SubResource( 3 )
+
+[node name="ShieldFoot3" type="CollisionShape2D" parent="."]
+position = Vector2( 717.937, 325.791 )
+rotation = -0.389213
+shape = SubResource( 3 )
+
+[node name="ShieldFoot4" type="CollisionShape2D" parent="."]
+position = Vector2( 629.379, 122.442 )
+rotation = -0.389213
+shape = SubResource( 3 )
+[connection signal="body_entered" from="BlueGoal" to="." method="_on_BlueGoal_body_entered"]
