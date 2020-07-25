@@ -1,0 +1,257 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://scripts/matches/AllianceSummary.cs" type="Script" id=1]
+[ext_resource path="res://themes/fonts/Xolonium-Regular.ttf" type="DynamicFontData" id=2]
+
+[sub_resource type="DynamicFont" id=1]
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 32
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 20
+font_data = ExtResource( 2 )
+
+[node name="AllianceSummary" type="MarginContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 10
+custom_constants/margin_top = 10
+custom_constants/margin_left = 10
+custom_constants/margin_bottom = 10
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AlliancePanel" type="Panel" parent="."]
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 1124.0
+margin_bottom = 658.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="AlliancePanel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/margin_right = 10
+custom_constants/margin_top = 10
+custom_constants/margin_left = 10
+custom_constants/margin_bottom = 10
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="AlliancePanel/MarginContainer"]
+show_behind_parent = true
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 1104.0
+margin_bottom = 638.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 10
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TeamAndScore" type="HBoxContainer" parent="AlliancePanel/MarginContainer/VBoxContainer"]
+margin_right = 1094.0
+margin_bottom = 309.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 20
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Teams" type="VBoxContainer" parent="AlliancePanel/MarginContainer/VBoxContainer/TeamAndScore"]
+margin_left = 490.0
+margin_right = 537.0
+margin_bottom = 309.0
+custom_constants/separation = 10
+alignment = 1
+
+[node name="Team1" type="Label" parent="AlliancePanel/MarginContainer/VBoxContainer/TeamAndScore/Teams"]
+margin_top = 123.0
+margin_right = 47.0
+margin_bottom = 137.0
+text = "Team 1"
+
+[node name="Team2" type="Label" parent="AlliancePanel/MarginContainer/VBoxContainer/TeamAndScore/Teams"]
+margin_top = 147.0
+margin_right = 47.0
+margin_bottom = 161.0
+text = "Team 2"
+
+[node name="Team3" type="Label" parent="AlliancePanel/MarginContainer/VBoxContainer/TeamAndScore/Teams"]
+margin_top = 171.0
+margin_right = 47.0
+margin_bottom = 185.0
+text = "Team 3"
+
+[node name="ScoreTotal" type="VBoxContainer" parent="AlliancePanel/MarginContainer/VBoxContainer/TeamAndScore"]
+margin_left = 557.0
+margin_right = 603.0
+margin_bottom = 309.0
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HighScoreLabel" type="Label" parent="AlliancePanel/MarginContainer/VBoxContainer/TeamAndScore/ScoreTotal"]
+visible = false
+margin_top = 123.0
+margin_right = 105.0
+margin_bottom = 143.0
+custom_fonts/font = SubResource( 1 )
+text = "High Score"
+align = 1
+uppercase = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Score" type="Label" parent="AlliancePanel/MarginContainer/VBoxContainer/TeamAndScore/ScoreTotal"]
+margin_top = 135.0
+margin_right = 46.0
+margin_bottom = 174.0
+custom_fonts/font = SubResource( 2 )
+text = "37"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="WinLabel" type="Label" parent="AlliancePanel/MarginContainer/VBoxContainer/TeamAndScore/ScoreTotal"]
+visible = false
+margin_top = 178.0
+margin_right = 105.0
+margin_bottom = 198.0
+custom_fonts/font = SubResource( 1 )
+text = "Win"
+align = 1
+uppercase = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ScoreBreakdown" type="VBoxContainer" parent="AlliancePanel/MarginContainer/VBoxContainer"]
+margin_top = 319.0
+margin_right = 1094.0
+margin_bottom = 628.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 10
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="AlliancePanel/MarginContainer/VBoxContainer/ScoreBreakdown"]
+margin_top = 82.0
+margin_right = 1094.0
+margin_bottom = 227.0
+custom_constants/separation = 6
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ScoreCategoryLabels" type="VBoxContainer" parent="AlliancePanel/MarginContainer/VBoxContainer/ScoreBreakdown/HBoxContainer"]
+margin_left = 447.0
+margin_right = 627.0
+margin_bottom = 145.0
+custom_constants/separation = 5
+
+[node name="InitiationLine" type="Label" parent="AlliancePanel/MarginContainer/VBoxContainer/ScoreBreakdown/HBoxContainer/ScoreCategoryLabels"]
+margin_right = 180.0
+margin_bottom = 25.0
+custom_fonts/font = SubResource( 3 )
+text = "Initiation Line"
+align = 2
+uppercase = true
+
+[node name="Balls" type="Label" parent="AlliancePanel/MarginContainer/VBoxContainer/ScoreBreakdown/HBoxContainer/ScoreCategoryLabels"]
+margin_top = 30.0
+margin_right = 180.0
+margin_bottom = 55.0
+custom_fonts/font = SubResource( 3 )
+text = "Balls"
+align = 2
+uppercase = true
+
+[node name="ColorWheel" type="Label" parent="AlliancePanel/MarginContainer/VBoxContainer/ScoreBreakdown/HBoxContainer/ScoreCategoryLabels"]
+margin_top = 60.0
+margin_right = 180.0
+margin_bottom = 85.0
+custom_fonts/font = SubResource( 3 )
+text = "Color Wheel"
+align = 2
+uppercase = true
+
+[node name="EndGame" type="Label" parent="AlliancePanel/MarginContainer/VBoxContainer/ScoreBreakdown/HBoxContainer/ScoreCategoryLabels"]
+margin_top = 90.0
+margin_right = 180.0
+margin_bottom = 115.0
+custom_fonts/font = SubResource( 3 )
+text = "End Game"
+align = 2
+uppercase = true
+
+[node name="Penalty" type="Label" parent="AlliancePanel/MarginContainer/VBoxContainer/ScoreBreakdown/HBoxContainer/ScoreCategoryLabels"]
+margin_top = 120.0
+margin_right = 180.0
+margin_bottom = 145.0
+custom_fonts/font = SubResource( 3 )
+text = "Penalty"
+align = 2
+uppercase = true
+
+[node name="ScoreCategoryTotals" type="VBoxContainer" parent="AlliancePanel/MarginContainer/VBoxContainer/ScoreBreakdown/HBoxContainer"]
+margin_left = 633.0
+margin_right = 647.0
+margin_bottom = 145.0
+
+[node name="InitiationLine" type="Label" parent="AlliancePanel/MarginContainer/VBoxContainer/ScoreBreakdown/HBoxContainer/ScoreCategoryTotals"]
+margin_right = 14.0
+margin_bottom = 25.0
+custom_fonts/font = SubResource( 3 )
+text = "0"
+
+[node name="Balls" type="Label" parent="AlliancePanel/MarginContainer/VBoxContainer/ScoreBreakdown/HBoxContainer/ScoreCategoryTotals"]
+margin_top = 29.0
+margin_right = 14.0
+margin_bottom = 54.0
+custom_fonts/font = SubResource( 3 )
+text = "0"
+
+[node name="ColorWheel" type="Label" parent="AlliancePanel/MarginContainer/VBoxContainer/ScoreBreakdown/HBoxContainer/ScoreCategoryTotals"]
+margin_top = 58.0
+margin_right = 14.0
+margin_bottom = 83.0
+custom_fonts/font = SubResource( 3 )
+text = "0"
+
+[node name="EndGame" type="Label" parent="AlliancePanel/MarginContainer/VBoxContainer/ScoreBreakdown/HBoxContainer/ScoreCategoryTotals"]
+margin_top = 87.0
+margin_right = 14.0
+margin_bottom = 112.0
+custom_fonts/font = SubResource( 3 )
+text = "0"
+
+[node name="Penalty" type="Label" parent="AlliancePanel/MarginContainer/VBoxContainer/ScoreBreakdown/HBoxContainer/ScoreCategoryTotals"]
+margin_top = 116.0
+margin_right = 14.0
+margin_bottom = 141.0
+custom_fonts/font = SubResource( 3 )
+text = "0"

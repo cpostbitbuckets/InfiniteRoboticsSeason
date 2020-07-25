@@ -1,8 +1,8 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://assets/2020-Field-Wide-Flat-ShieldColorWheel.png" type="Texture" id=1]
-[ext_resource path="res://scripts/Field.gd" type="Script" id=2]
-[ext_resource path="res://assets/2020-Field-Wide-Flat.png" type="Texture" id=3]
+[ext_resource path="res://matches/Field.cs" type="Script" id=1]
+[ext_resource path="res://matches/ball.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/2020-Field-Wide.png" type="Texture" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 569.511, 14.0786 )
@@ -11,47 +11,126 @@ extents = Vector2( 569.511, 14.0786 )
 extents = Vector2( 31.3748, 3.51979 )
 
 [sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 13.904, 11.8572 )
+
+[sub_resource type="NavigationPolygon" id=4]
+vertices = PoolVector2Array( 921, 486, 925, 422, 1198, 345, 1197, 439, 1139, 486, 928, 534, 1160, 175, 1200, 262, 847, 276, 845, 212, 318, 172, 780, 211, 630, 307, 777, 274, 857, 425, 628, 371, 562, 532, 560, 616, 315, 612, 295, 535, 351, 486, 1180, 543, 1159, 611, 929, 612, 740, 532, 860, 485, 571, 305, 288, 259, 291, 435, 571, 370, 630, 531, 667, 505, 707, 516 )
+polygons = [ PoolIntArray( 0, 1, 2, 3, 4, 5 ), PoolIntArray( 6, 7, 2, 8, 9 ), PoolIntArray( 10, 6, 9, 11 ), PoolIntArray( 12, 13, 8, 2, 1, 14, 15 ), PoolIntArray( 16, 17, 18, 19, 20 ), PoolIntArray( 21, 22, 23, 5, 4 ), PoolIntArray( 0, 5, 24, 25 ), PoolIntArray( 10, 11, 13, 12, 26, 27 ), PoolIntArray( 20, 28, 27, 26, 29, 16 ), PoolIntArray( 30, 16, 29, 15, 31 ), PoolIntArray( 31, 15, 14, 32 ), PoolIntArray( 24, 32, 14, 25 ) ]
+outlines = [ PoolVector2Array( 288, 259, 318, 172, 1160, 175, 1200, 262, 1198, 345, 1197, 439, 1139, 486, 1180, 543, 1159, 611, 929, 612, 928, 534, 740, 532, 707, 516, 667, 505, 630, 531, 562, 532, 560, 616, 315, 612, 295, 535, 351, 486, 291, 435 ), PoolVector2Array( 571, 305, 630, 307, 628, 371, 571, 370 ), PoolVector2Array( 780, 211, 777, 274, 847, 276, 845, 212 ), PoolVector2Array( 857, 425, 860, 485, 921, 486, 925, 422 ) ]
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 475.27, 253.455 )
 
 [node name="Field" type="StaticBody2D"]
-script = ExtResource( 2 )
+collision_layer = 7
+collision_mask = 7
+script = ExtResource( 1 )
 
-[node name="WallsSprite" type="Sprite" parent="."]
-texture = ExtResource( 3 )
+[node name="2020-Field-Wide" type="Sprite" parent="."]
+visible = false
+position = Vector2( 0, -0.419189 )
+texture = ExtResource( 5 )
 centered = false
 
-[node name="ShieldGenSprite" type="Sprite" parent="."]
-z_index = 1
-texture = ExtResource( 1 )
-centered = false
+[node name="FieldLines" type="Node2D" parent="."]
+
+[node name="RedTrenchLine" type="Line2D" parent="FieldLines"]
+modulate = Color( 1.67843, 1.68627, 1.69804, 1 )
+points = PoolVector2Array( 408, 24, 408, 112, 728, 112, 728, 24 )
+width = 5.0
+default_color = Color( 0.67451, 0.0627451, 0.054902, 1 )
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+sharp_limit = 8.0
+
+[node name="BlueTrenchLine" type="Line2D" parent="FieldLines"]
+modulate = Color( 1.9, 1.9, 1.9, 1 )
+position = Vector2( -0.393616, 320.736 )
+points = PoolVector2Array( 408.394, 191.264, 408.394, 111.264, 728.394, 111.264, 728.394, 191.264 )
+width = 5.0
+default_color = Color( 0.0431373, 0.0352941, 0.588235, 1 )
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+sharp_limit = 8.0
+
+[node name="BlueBallDropLine" type="Line2D" parent="FieldLines"]
+modulate = Color( 1.9, 1.9, 1.9, 1 )
+position = Vector2( -0.393616, 320.736 )
+points = PoolVector2Array( 96.3936, -0.735992, 144.394, 39.264, 96.3936, 87.264 )
+width = 5.0
+default_color = Color( 0.0431373, 0.0352941, 0.588235, 1 )
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+sharp_limit = 8.0
+
+[node name="BlueScoreLine" type="Line2D" parent="FieldLines"]
+modulate = Color( 1.9, 1.9, 1.9, 1 )
+position = Vector2( -0.393616, 320.736 )
+points = PoolVector2Array( 1040.39, 15.264, 992.394, 47.264, 1040.39, 87.264 )
+width = 5.0
+default_color = Color( 0.0431373, 0.0352941, 0.588235, 1 )
+sharp_limit = 8.0
+
+[node name="RedScoreLine" type="Line2D" parent="FieldLines"]
+modulate = Color( 1.67843, 1.68627, 1.69804, 1 )
+points = PoolVector2Array( 96, 136, 136, 168, 96, 208 )
+width = 5.0
+default_color = Color( 0.67451, 0.0627451, 0.054902, 1 )
+sharp_limit = 8.0
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="RedBallDropLine" type="Line2D" parent="FieldLines"]
+modulate = Color( 1.67843, 1.68627, 1.69804, 1 )
+points = PoolVector2Array( 1040, 136, 992, 176, 1040, 224 )
+width = 5.0
+default_color = Color( 0.67451, 0.0627451, 0.054902, 1 )
+sharp_limit = 8.0
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="BlueInitiationLine" type="Line2D" parent="FieldLines"]
+position = Vector2( 0, -3 )
+points = PoolVector2Array( 856, 27, 856, 515 )
+width = 2.0
+default_color = Color( 1, 1, 1, 1 )
+
+[node name="RedInitiationLine" type="Line2D" parent="FieldLines"]
+position = Vector2( 0, -0.419189 )
+points = PoolVector2Array( 280, 27, 280, 515 )
+width = 2.0
+default_color = Color( 1, 1, 1, 1 )
+
+[node name="WallLine" type="Line2D" parent="FieldLines"]
+position = Vector2( 0, 0.48114 )
+points = PoolVector2Array( 136, 24, 1000, 24, 1040, 128, 1040, 408, 1000, 512, 136, 512, 96, 408, 96, 128, 136, 24 )
+width = 4.0
+default_color = Color( 1, 1, 1, 1 )
 
 [node name="TopWall" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2( 566.009, 13.1308 )
 shape = SubResource( 1 )
 
 [node name="BottomWall" type="CollisionShape2D" parent="."]
-position = Vector2( 566.7, 526.616 )
+visible = false
+position = Vector2( 566.7, 523.616 )
 shape = SubResource( 1 )
 
 [node name="LeftWall" type="CollisionPolygon2D" parent="."]
+visible = false
 polygon = PoolVector2Array( 113.823, 20.059, 137.015, 26.9865, 97.8713, 132.559, 94.8314, 131.672, 93.0582, 205.388, 96.9846, 205.768, 100.239, 409.413, 137.716, 511.351, 110.733, 520.346, 76.2539, 409.413, 69.3463, 123.667 )
 
 [node name="RightWall" type="CollisionPolygon2D" parent="."]
+visible = false
 position = Vector2( 1136.21, 540.089 )
 rotation = -3.14159
 polygon = PoolVector2Array( 113.823, 20.059, 137.015, 26.9865, 97.8713, 132.559, 94.8314, 131.672, 93.0582, 205.388, 96.9846, 205.768, 100.239, 409.413, 137.716, 511.351, 110.733, 520.346, 76.2539, 409.413, 69.3463, 123.667 )
-
-[node name="RedGoal" type="Area2D" parent="."]
-
-[node name="RedGoalCollision" type="CollisionPolygon2D" parent="RedGoal"]
-position = Vector2( 1137.53, 536.143 )
-rotation = 3.14159
-polygon = PoolVector2Array( 1040.16, 402.852, 1040.54, 331.036, 1044.09, 331.289, 1042.57, 404.372 )
-
-[node name="BlueGoal" type="Area2D" parent="."]
-
-[node name="BlueGoalCollision" type="CollisionPolygon2D" parent="BlueGoal"]
-position = Vector2( -1.5498, 4.16901 )
-polygon = PoolVector2Array( 1040.16, 402.852, 1040.54, 330, 1044.75, 329.7, 1042.57, 404.372 )
 
 [node name="RedColorWheel" type="CollisionShape2D" parent="."]
 position = Vector2( 636.267, 109.073 )
@@ -77,7 +156,209 @@ rotation = -0.389213
 shape = SubResource( 3 )
 
 [node name="ShieldFoot4" type="CollisionShape2D" parent="."]
-position = Vector2( 629.379, 122.442 )
+position = Vector2( 634.284, 126.039 )
 rotation = -0.389213
 shape = SubResource( 3 )
-[connection signal="body_entered" from="BlueGoal" to="." method="_on_BlueGoal_body_entered"]
+
+[node name="RedGoal" type="Area2D" parent="."]
+visible = false
+collision_layer = 4
+collision_mask = 4
+
+[node name="RedGoalCollision" type="CollisionPolygon2D" parent="RedGoal"]
+position = Vector2( 1137.53, 536.143 )
+rotation = 3.14159
+polygon = PoolVector2Array( 1040.16, 402.852, 1040.54, 331.036, 1044.09, 331.289, 1042.57, 404.372 )
+
+[node name="RedBallDrop" type="Area2D" parent="."]
+visible = false
+
+[node name="Collision" type="CollisionPolygon2D" parent="RedBallDrop"]
+position = Vector2( 8960.26, 554.508 )
+rotation = 3.14159
+scale = Vector2( 7.61862, 1.02154 )
+polygon = PoolVector2Array( 1040.12, 406.789, 1040.01, 327.889, 1045.17, 367.751 )
+
+[node name="SpawnPoint" type="Position2D" parent="RedBallDrop"]
+position = Vector2( 1031.61, 176.893 )
+
+[node name="BlueGoal" type="Area2D" parent="."]
+visible = false
+collision_layer = 4
+collision_mask = 4
+
+[node name="BlueGoalCollision" type="CollisionPolygon2D" parent="BlueGoal"]
+position = Vector2( -497.761, 86.1153 )
+scale = Vector2( 1.47479, 0.774501 )
+polygon = PoolVector2Array( 1040.16, 402.852, 1040.54, 330, 1044.67, 330.113, 1043.58, 402.262 )
+
+[node name="BlueBallDrop" type="Area2D" parent="."]
+visible = false
+
+[node name="Collision" type="CollisionPolygon2D" parent="BlueBallDrop"]
+position = Vector2( 8098.12, 748.314 )
+rotation = 3.14504
+scale = Vector2( 7.61862, 1.02154 )
+polygon = PoolVector2Array( 1050.13, 391.761, 1049.9, 311.252, 1044.34, 351.801 )
+
+[node name="SpawnPoint" type="Position2D" parent="BlueBallDrop"]
+position = Vector2( 107.761, 364.036 )
+
+[node name="BlueNav" type="Navigation2D" parent="."]
+visible = false
+
+[node name="NavPoly" type="NavigationPolygonInstance" parent="BlueNav"]
+position = Vector2( 1313.79, 661.89 )
+rotation = 3.14159
+navpoly = SubResource( 4 )
+
+[node name="RedNav" type="Navigation2D" parent="."]
+visible = false
+
+[node name="NavPoly" type="NavigationPolygonInstance" parent="RedNav"]
+position = Vector2( -172.763, -124.889 )
+navpoly = SubResource( 4 )
+
+[node name="Balls" type="Node2D" parent="."]
+
+[node name="Ball" parent="Balls" instance=ExtResource( 4 )]
+position = Vector2( 460.194, 67.7515 )
+
+[node name="Ball2" parent="Balls" instance=ExtResource( 4 )]
+position = Vector2( 514.271, 67.9611 )
+
+[node name="Ball3" parent="Balls" instance=ExtResource( 4 )]
+position = Vector2( 568.138, 68.3803 )
+
+[node name="Ball4" parent="Balls" instance=ExtResource( 4 )]
+position = Vector2( 664.764, 54.3371 )
+
+[node name="Ball5" parent="Balls" instance=ExtResource( 4 )]
+position = Vector2( 663.926, 82.6331 )
+
+[node name="Ball6" parent="Balls" instance=ExtResource( 4 )]
+position = Vector2( 678.807, 248.636 )
+
+[node name="Ball7" parent="Balls" instance=ExtResource( 4 )]
+position = Vector2( 688.658, 271.273 )
+
+[node name="Ball8" parent="Balls" instance=ExtResource( 4 )]
+position = Vector2( 697.881, 294.748 )
+
+[node name="Ball9" parent="Balls" instance=ExtResource( 4 )]
+position = Vector2( 687.61, 330.8 )
+
+[node name="Ball10" parent="Balls" instance=ExtResource( 4 )]
+position = Vector2( 664.345, 339.393 )
+
+[node name="Ball11" parent="Balls" instance=ExtResource( 4 )]
+position = Vector2( 471.513, 198.123 )
+
+[node name="Ball12" parent="Balls" instance=ExtResource( 4 )]
+position = Vector2( 448.666, 207.555 )
+
+[node name="Ball13" parent="Balls" instance=ExtResource( 4 )]
+position = Vector2( 438.606, 244.654 )
+
+[node name="Ball14" parent="Balls" instance=ExtResource( 4 )]
+position = Vector2( 447.409, 267.5 )
+
+[node name="Ball15" parent="Balls" instance=ExtResource( 4 )]
+position = Vector2( 456.779, 290.976 )
+
+[node name="Ball16" parent="Balls" instance=ExtResource( 4 )]
+position = Vector2( 676.292, 469.764 )
+
+[node name="Ball17" parent="Balls" instance=ExtResource( 4 )]
+position = Vector2( 622.006, 469.764 )
+
+[node name="Ball18" parent="Balls" instance=ExtResource( 4 )]
+position = Vector2( 568.139, 469.764 )
+
+[node name="Ball19" parent="Balls" instance=ExtResource( 4 )]
+position = Vector2( 472.142, 482.969 )
+
+[node name="Ball20" parent="Balls" instance=ExtResource( 4 )]
+position = Vector2( 472.142, 455.302 )
+
+[node name="ShieldGenerator" type="Node2D" parent="."]
+z_index = 2
+
+[node name="ColorRect" type="ColorRect" parent="ShieldGenerator"]
+margin_left = 427.0
+margin_top = 201.0
+margin_right = 451.0
+margin_bottom = 225.0
+rect_rotation = 69.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect2" type="ColorRect" parent="ShieldGenerator"]
+margin_left = 641.0
+margin_top = 112.0
+margin_right = 665.0
+margin_bottom = 136.0
+rect_rotation = 69.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect3" type="ColorRect" parent="ShieldGenerator"]
+margin_left = 722.0
+margin_top = 309.0
+margin_right = 746.0
+margin_bottom = 333.0
+rect_rotation = 69.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect4" type="ColorRect" parent="ShieldGenerator"]
+margin_left = 510.0
+margin_top = 399.0
+margin_right = 534.0
+margin_bottom = 423.0
+rect_rotation = 69.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Line2D" type="Line2D" parent="ShieldGenerator"]
+points = PoolVector2Array( 416, 230, 489, 408 )
+width = 3.0
+default_color = Color( 1, 1, 1, 1 )
+
+[node name="Line2D2" type="Line2D" parent="ShieldGenerator"]
+points = PoolVector2Array( 623, 123, 427, 203 )
+width = 3.0
+default_color = Color( 1, 1, 1, 1 )
+
+[node name="Line2D3" type="Line2D" parent="ShieldGenerator"]
+points = PoolVector2Array( 647, 132, 719, 310 )
+width = 3.0
+default_color = Color( 1, 1, 1, 1 )
+
+[node name="Line2D4" type="Line2D" parent="ShieldGenerator"]
+points = PoolVector2Array( 517, 418, 710, 338 )
+width = 3.0
+default_color = Color( 1, 1, 1, 1 )
+
+[node name="ColorWheels" type="Node2D" parent="."]
+z_index = 2
+
+[node name="RedColorWheelPolygon" type="Polygon2D" parent="ColorWheels"]
+polygon = PoolVector2Array( 667, 26, 667, 112, 605, 112, 605, 26 )
+
+[node name="BlueColorWheelPolygon" type="Polygon2D" parent="ColorWheels"]
+polygon = PoolVector2Array( 532, 429, 532, 512, 470, 512, 470, 429 )
+
+[node name="GroundArea" type="Area2D" parent="."]
+visible = false
+space_override = 1
+gravity = 0.0
+linear_damp = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GroundArea"]
+position = Vector2( 568.72, 272.512 )
+shape = SubResource( 5 )

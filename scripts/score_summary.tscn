@@ -1,0 +1,55 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://matches/alliance_summary.tscn" type="PackedScene" id=1]
+[ext_resource path="res://themes/fonts/Xolonium-Regular.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://themes/blue.theme" type="Theme" id=3]
+[ext_resource path="res://themes/red.theme" type="Theme" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+size = 32
+font_data = ExtResource( 2 )
+
+[node name="Scores" type="VBoxContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Match Over!" type="Label" parent="."]
+margin_right = 1134.0
+margin_bottom = 39.0
+custom_fonts/font = SubResource( 1 )
+text = "Match Over!"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TeamSummaries" type="HBoxContainer" parent="."]
+margin_top = 43.0
+margin_right = 1134.0
+margin_bottom = 668.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 1
+
+[node name="BlueSummary" parent="TeamSummaries" instance=ExtResource( 1 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 565.0
+margin_bottom = 625.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource( 3 )
+
+[node name="RedSummary" parent="TeamSummaries" instance=ExtResource( 1 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 569.0
+margin_right = 1134.0
+margin_bottom = 625.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource( 4 )
+Alliance = 1

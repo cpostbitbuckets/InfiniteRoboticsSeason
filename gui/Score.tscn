@@ -1,12 +1,12 @@
 [gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://gui/Score.gd" type="Script" id=1]
+[ext_resource path="res://gui/Score.cs" type="Script" id=1]
 [ext_resource path="res://themes/red_box_round.stylebox" type="StyleBox" id=2]
 [ext_resource path="res://themes/blue.theme" type="Theme" id=3]
 [ext_resource path="res://themes/fonts/Xolonium-Regular.ttf" type="DynamicFontData" id=4]
 
 [sub_resource type="StyleBoxFlat" id=1]
-bg_color = Color( 1, 1, 1, 1 )
+bg_color = Color( 0, 0, 0, 0 )
 border_width_left = 1
 border_width_top = 1
 border_width_right = 1
@@ -40,28 +40,31 @@ margin_right = 200.0
 margin_bottom = 20.0
 rect_min_size = Vector2( 200, 20 )
 custom_styles/normal = SubResource( 1 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "Team 1"
+align = 2
 valign = 1
 
 [node name="Team2" type="Label" parent="RedTeams"]
-margin_top = 24.0
+margin_top = 25.0
 margin_right = 200.0
-margin_bottom = 44.0
+margin_bottom = 45.0
 rect_min_size = Vector2( 200, 20 )
 custom_styles/normal = SubResource( 1 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "Team 1"
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Team 2"
+align = 2
 valign = 1
 
 [node name="Team3" type="Label" parent="RedTeams"]
-margin_top = 48.0
+margin_top = 50.0
 margin_right = 200.0
-margin_bottom = 68.0
+margin_bottom = 70.0
 rect_min_size = Vector2( 200, 20 )
 custom_styles/normal = SubResource( 1 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "Team 1"
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Team 3"
+align = 2
 valign = 1
 
 [node name="TeamScores" type="VBoxContainer" parent="."]
@@ -71,13 +74,24 @@ margin_bottom = 128.0
 
 [node name="MatchTime" type="ProgressBar" parent="TeamScores"]
 margin_right = 196.0
-margin_bottom = 2.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 0, 20 )
 percent_visible = false
 
-[node name="TeamScores" type="HBoxContainer" parent="TeamScores"]
-margin_top = 6.0
+[node name="Label" type="Label" parent="TeamScores/MatchTime"]
 margin_right = 196.0
-margin_bottom = 102.0
+margin_bottom = 17.0
+text = "120"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TeamScores" type="HBoxContainer" parent="TeamScores"]
+margin_top = 25.0
+margin_right = 196.0
+margin_bottom = 121.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -128,26 +142,26 @@ margin_right = 200.0
 margin_bottom = 20.0
 rect_min_size = Vector2( 200, 20 )
 custom_styles/normal = SubResource( 1 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "Team 1"
 valign = 1
 
 [node name="Team2" type="Label" parent="BlueTeams"]
-margin_top = 24.0
+margin_top = 25.0
 margin_right = 200.0
-margin_bottom = 44.0
+margin_bottom = 45.0
 rect_min_size = Vector2( 200, 20 )
 custom_styles/normal = SubResource( 1 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "Team 1"
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Team 2"
 valign = 1
 
 [node name="Team3" type="Label" parent="BlueTeams"]
-margin_top = 48.0
+margin_top = 50.0
 margin_right = 200.0
-margin_bottom = 68.0
+margin_bottom = 70.0
 rect_min_size = Vector2( 200, 20 )
 custom_styles/normal = SubResource( 1 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "Team 1"
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Team 3"
 valign = 1

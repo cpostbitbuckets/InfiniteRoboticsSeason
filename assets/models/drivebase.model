@@ -1,0 +1,33 @@
+# Made using Asset Forge (2.0 preview-1e)
+
+:materials
+
+[name:Material.001;color:RGBA(1.000, 1.000, 1.000, 1.000);scale:(1.0, 1.0);shader:Standard;valueA:0.5;valueB:0;]
+[name:wood;color:RGBA(0.792, 0.751, 0.450, 1.000);scale:(2.0, 2.0);texture:Wood/planksHorizontal.png;shader:Standard;valueA:0.35;valueB:0;]
+[name:dark;color:RGBA(0.224, 0.235, 0.275, 1.000);scale:(1.0, 1.0);shader:Standard;valueA:0.35;valueB:0;]
+[name:metalLight;color:RGBA(0.698, 0.686, 0.867, 1.000);scale:(1.0, 1.0);shader:Standard;valueA:0.35;valueB:0.5;]
+[name:metal;color:RGBA(0.580, 0.569, 0.769, 1.000);scale:(1.0, 1.0);shader:Standard;valueA:0.35;valueB:0.5;]
+[name:lightRed;color:RGBA(0.830, 0.441, 0.143, 1.000);scale:(1.0, 1.0);shader:Unlit;]
+[name:_defaultMat;color:RGBA(0.939, 0.953, 1.000, 1.000);scale:(1.0, 1.0);shader:Standard;valueA:0.5;valueB:0.15;]
+[name:shield;color:RGBA(0.000, 0.000, 0.000, 1.000);scale:(1.0, 1.0);shader:Standard;valueA:0.35;valueB:0.35;]
+[name:custom8;color:RGBA(0.145, 0.145, 0.145, 1.000);scale:(1.0, 1.0);shader:Standard;valueA:0;valueB:0.5;]
+[name:custom9;color:RGBA(0.355, 0.307, 0.307, 1.000);scale:(1.0, 1.0);texture:Patterns/checkerboard.png;shader:Standard;valueA:0.35;valueB:0.35;]
+[name:metalDark;color:RGBA(0.400, 0.388, 0.647, 1.000);scale:(1.0, 1.0);shader:Standard;valueA:0.35;valueB:0.5;]
+[name:custom11;color:RGBA(1.000, 1.000, 1.000, 1.000);scale:(1.0, 1.0);shader:Standard;valueA:0;valueB:0.5;]
+[name:stone;color:RGBA(0.571, 0.559, 0.736, 1.000);scale:(1.0, 1.0);shader:Standard;valueA:0.5;valueB:0;]
+[name:blueSteel;color:RGBA(0.027, 0.400, 0.694, 1.000);scale:(1.0, 1.0);shader:Standard;valueA:0.5;valueB:0;]
+
+:models
+
+[name:;collection:Western;type:porch_floorCenter;position:(-0.0650, 0.0000, -0.1550);rotation:(0.0000, 0.0000, 0.0000);scale:(1.8700, 1.0000, 1.7100);group:;locked:False;hidden:False;materials:wood;]
+[name:;collection:Infinite Robotics;type:bumpers;position:(-0.0500, 0.0000, -0.1516);rotation:(0.0000, 0.0000, 0.0000);scale:(1.0500, 0.5000, 1.0500);group:;locked:False;hidden:False;materials:Material.001;]
+[name:;collection:Vehicles;type:wheel_cycleSpokes;position:(1.1000, 0.0000, -0.9000);rotation:(0.0000, 0.0000, 0.0000);scale:(1.0000, 1.0000, 1.0000);group:;locked:False;hidden:False;materials:dark+metalLight+metal;]
+[name:;collection:Vehicles;type:wheel_cycleSpokes;position:(1.1000, 0.0000, -0.1500);rotation:(0.0000, 0.0000, 0.0000);scale:(1.0000, 1.0000, 1.0000);group:;locked:False;hidden:False;materials:dark+metalLight+metal;]
+[name:;collection:Vehicles;type:wheel_cycleSpokes;position:(1.1000, 0.0000, 0.6000);rotation:(0.0000, 0.0000, 0.0000);scale:(1.0000, 1.0000, 1.0000);group:;locked:False;hidden:False;materials:dark+metalLight+metal;]
+[name:;collection:Vehicles;type:wheel_cycleSpokes;position:(-1.2000, 0.0000, 0.6000);rotation:(0.0000, 180.0000, 0.0000);scale:(1.0000, 1.0000, 1.0000);group:;locked:False;hidden:False;materials:dark+metalLight+metal;]
+[name:;collection:Vehicles;type:wheel_cycleSpokes;position:(-1.2000, 0.0000, -0.1500);rotation:(0.0000, 180.0000, 0.0000);scale:(1.0000, 1.0000, 1.0000);group:;locked:False;hidden:False;materials:dark+metalLight+metal;]
+[name:;collection:Vehicles;type:wheel_cycleSpokes;position:(-1.2000, 0.0000, -0.9000);rotation:(0.0000, 180.0000, 0.0000);scale:(1.0000, 1.0000, 1.0000);group:;locked:False;hidden:False;materials:dark+metalLight+metal;]
+[name:;collection:Vehicles;type:detail_siren;position:(-0.9500, 0.2500, -0.8900);rotation:(0.0000, 0.0000, 0.0000);scale:(0.4000, 0.4000, 0.4000);group:;locked:False;hidden:False;materials:lightRed+dark;]
+[name:shooter;collection:Blasters;type:clipBarrel;position:(-0.0500, 0.4000, 0.6000);rotation:(0.0000, 0.0000, 0.0000);scale:(0.8000, 0.8000, 0.8000);group:;locked:False;hidden:False;materials:Material.001+dark;]
+[name:;collection:ShipParts;type:Torus03;position:(-0.0500, 0.1000, -0.1500);rotation:(0.0000, 0.0000, 0.0000);scale:(1.6000, 2.8800, 1.6000);group:;locked:False;hidden:False;materials:shield+dark;]
+[name:intake;collection:Primitives;type:cylinder;position:(-1.0000, 0.2000, 1.1000);rotation:(90.0000, 90.0000, 0.0000);scale:(0.2000, 1.8304, 0.2000);group:;locked:False;hidden:False;materials:custom8;]

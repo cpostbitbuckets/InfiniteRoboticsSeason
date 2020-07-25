@@ -1,79 +1,26 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://assets/Robot/robot_drivebase_blue.png" type="Texture" id=1]
-[ext_resource path="res://scripts/Robot.gd" type="Script" id=2]
-[ext_resource path="res://assets/sheet_equipment.png" type="Texture" id=3]
-[ext_resource path="res://assets/Robot/hopper.png" type="Texture" id=4]
-[ext_resource path="res://assets/Robot/hopper_arms_blue.png" type="Texture" id=5]
-[ext_resource path="res://robots/components/Intake.tscn" type="PackedScene" id=6]
-[ext_resource path="res://assets/Robot/shooter2.png" type="Texture" id=9]
+[ext_resource path="res://robots/Robot.cs" type="Script" id=1]
+[ext_resource path="res://robots/components/shooter.tscn" type="PackedScene" id=3]
+[ext_resource path="res://robots/components/intake.tscn" type="PackedScene" id=6]
+[ext_resource path="res://robots/components/drive_base.tscn" type="PackedScene" id=8]
+[ext_resource path="res://robots/components/hopper.tscn" type="PackedScene" id=9]
 
-[sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 22.4328, 27.4896 )
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 27.1792, 30.6827 )
 
 [node name="Robot" type="KinematicBody2D"]
-script = ExtResource( 2 )
-
-[node name="DriveBase" type="Sprite" parent="."]
-rotation = 1.5708
-scale = Vector2( 0.115588, 0.115588 )
-texture = ExtResource( 1 )
-region_rect = Rect2( 867.807, 300.165, 0, 1.67654 )
-
-[node name="Hopper" type="Sprite" parent="."]
-rotation = 1.5708
-scale = Vector2( 0.115588, 0.115588 )
-texture = ExtResource( 4 )
-region_rect = Rect2( 867.807, 300.165, 0, 1.67654 )
-
-[node name="HopperBall1" type="Sprite" parent="Hopper"]
-position = Vector2( -69.225, -69.8847 )
-rotation = -1.5708
-scale = Vector2( 6.27702, 6.27702 )
-texture = ExtResource( 3 )
-region_enabled = true
-region_rect = Rect2( 51, 73, 18, 18 )
-
-[node name="HopperBall2" type="Sprite" parent="Hopper"]
-position = Vector2( -63.1194, 48.1571 )
-rotation = -1.5708
-scale = Vector2( 6.27702, 6.27702 )
-texture = ExtResource( 3 )
-region_enabled = true
-region_rect = Rect2( 51, 73, 18, 18 )
-
-[node name="HopperBall3" type="Sprite" parent="Hopper"]
-position = Vector2( 67.1333, 48.1571 )
-rotation = -1.5708
-scale = Vector2( 6.27702, 6.27702 )
-texture = ExtResource( 3 )
-region_enabled = true
-region_rect = Rect2( 51, 73, 18, 18 )
-
-[node name="HopperBall4" type="Sprite" parent="Hopper"]
-position = Vector2( 65.8519, -74.2472 )
-rotation = -1.5708
-scale = Vector2( 6.27702, 6.27702 )
-texture = ExtResource( 3 )
-region_enabled = true
-region_rect = Rect2( 51, 73, 18, 18 )
-
-[node name="HopperArms" type="Sprite" parent="Hopper"]
-position = Vector2( 8.25064e-06, -8.25064e-06 )
-rotation = 7.10543e-15
-scale = Vector2( 1, 1 )
-texture = ExtResource( 5 )
-region_rect = Rect2( 867.807, 300.165, 0, 1.67654 )
-
-[node name="IntakeArea" parent="." instance=ExtResource( 6 )]
+script = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 
-[node name="Shooter" type="Sprite" parent="."]
-rotation = 1.5708
-scale = Vector2( 0.115588, 0.115588 )
-texture = ExtResource( 9 )
-region_rect = Rect2( 867.807, 300.165, 0, 1.67654 )
-[connection signal="body_entered" from="IntakeArea" to="." method="_on_IntakeArea_body_entered"]
+[node name="DriveBase" parent="." instance=ExtResource( 8 )]
+
+[node name="Hopper" parent="." instance=ExtResource( 9 )]
+
+[node name="Intake" parent="." instance=ExtResource( 6 )]
+position = Vector2( 31.8847, 0 )
+
+[node name="Shooter" parent="." instance=ExtResource( 3 )]
+position = Vector2( 27.0188, 0 )

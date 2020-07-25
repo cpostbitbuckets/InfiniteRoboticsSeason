@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://assets/Robot/shooter2.png" type="Texture" id=1]
+[ext_resource path="res://robots/components/Shooter.cs" type="Script" id=2]
+
+[sub_resource type="Gradient" id=1]
+offsets = PoolRealArray( 0, 0.480687, 1 )
+colors = PoolColorArray( 0, 0.462745, 0.0392157, 1, 0, 0, 0, 1, 0, 0.462745, 0.0392157, 1 )
+
+[node name="Shooter" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="ShooterSprite" type="Sprite" parent="."]
+visible = false
+position = Vector2( -16, 0 )
+rotation = 1.5708
+scale = Vector2( 0.115588, 0.115588 )
+texture = ExtResource( 1 )
+region_rect = Rect2( 867.807, 300.165, 0, 1.67654 )
+
+[node name="Line2D" type="Line2D" parent="."]
+position = Vector2( 0, -4 )
+points = PoolVector2Array( 8, -8, 0, -8, -8, 0, -8, 8, 0, 16, 8, 16 )
+width = 3.0
+default_color = Color( 0.168627, 0.764706, 0.0235294, 1 )
+gradient = SubResource( 1 )
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="ChargeTimer" type="Timer" parent="."]
+
+[node name="CooldownTimer" type="Timer" parent="."]

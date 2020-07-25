@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://shaders/tron.shader" type="Shader" id=1]
+
+[sub_resource type="ShaderMaterial" id=1]
+shader = ExtResource( 1 )
+shader_param/fill_color = Color( 0, 0, 0, 1 )
+shader_param/line_color = Color( 1, 1, 1, 1 )
+shader_param/line_thickness = 2.05
+shader_param/line_sharpness = 10.0
+shader_param/edge_subtract = 0.1
+shader_param/glow_strength = 1.1
+
+[node name="Glowrect" type="ColorRect"]
+material = SubResource( 1 )
+margin_right = 40.0
+margin_bottom = 40.0
+color = Color( 0.443137, 0.133333, 0.133333, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}

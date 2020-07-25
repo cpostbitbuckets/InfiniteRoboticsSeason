@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://primitives/glowgon.gd" type="Script" id=1]
+
+[node name="Glowgon" type="Polygon2D"]
+modulate = Color( 1.2, 1.2, 1.2, 1 )
+color = Color( 1, 1, 1, 0 )
+polygon = PoolVector2Array( -16, -16, 16, -16, 16, 16, -16, 16, -16, -3.16619 )
+script = ExtResource( 1 )
+outline_color = Color( 1, 1, 1, 1 )
+line_width = 2.0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PoolVector2Array( -16, -16, 16, -16, 16, 16, -16, 16, -16, -3.16619 )

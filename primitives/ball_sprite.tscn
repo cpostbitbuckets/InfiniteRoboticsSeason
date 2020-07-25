@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://assets/sparkle.png" type="Texture" id=1]
+
+[node name="Sprite" type="Sprite"]
+modulate = Color( 0.827451, 0.831373, 0.188235, 1 )
+scale = Vector2( 0.187209, 0.187209 )
+texture = ExtResource( 1 )

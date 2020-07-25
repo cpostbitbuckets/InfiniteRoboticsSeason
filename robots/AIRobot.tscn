@@ -1,40 +1,10 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://robots/Robot.tscn" type="PackedScene" id=1]
-[ext_resource path="res://assets/Robot/ai_robot_blue.png" type="Texture" id=2]
-[ext_resource path="res://robots/AIRobot.gd" type="Script" id=3]
+[ext_resource path="res://robots/robot.tscn" type="PackedScene" id=1]
+[ext_resource path="res://robots/AIRobot.cs" type="Script" id=2]
 
 [node name="AIRobot" instance=ExtResource( 1 )]
-script = ExtResource( 3 )
+script = ExtResource( 2 )
 
-[node name="DriveBase" parent="." index="0"]
-texture = ExtResource( 2 )
-
-[node name="Hopper" parent="." index="1"]
-texture = null
-
-[node name="HopperBall1" parent="Hopper" index="0"]
-position = Vector2( -80.3701, -165.729 )
-
-[node name="HopperBall2" parent="Hopper" index="1"]
-position = Vector2( -74.2645, -47.6871 )
-
-[node name="HopperBall3" parent="Hopper" index="2"]
-position = Vector2( 55.9883, -47.6871 )
-
-[node name="HopperBall4" parent="Hopper" index="3"]
-position = Vector2( 54.7069, -170.091 )
-
-[node name="HopperArms" parent="Hopper" index="4"]
-visible = false
-
-[node name="IntakeArea" parent="." index="2"]
-visible = false
-position = Vector2( 3.60694, -1.28819 )
-
-[node name="CollisionShape2D" parent="." index="3"]
-visible = true
+[node name="CollisionShape2D" parent="." index="0"]
 position = Vector2( 5.4104, 0.515266 )
-
-[node name="Shooter" parent="." index="4"]
-visible = false

@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{7F761564-7D1F-4DA2-9E2C-88DBBEAF533D}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <OutputPath>.mono/temp/bin/$(Configuration)</OutputPath>
+    <RootNamespace>InfiniteRoboticsSeason</RootNamespace>
+    <AssemblyName>Infinite Robotics Season</AssemblyName>
+    <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
+    <GodotProjectGeneratorVersion>1.0.7374.18850</GodotProjectGeneratorVersion>
+    <BaseIntermediateOutputPath>.mono/temp/obj</BaseIntermediateOutputPath>
+    <IntermediateOutputPath>$(BaseIntermediateOutputPath)/$(Configuration)</IntermediateOutputPath>
+    <ApiConfiguration Condition=" '$(Configuration)' != 'ExportRelease' ">Debug</ApiConfiguration>
+    <ApiConfiguration Condition=" '$(Configuration)' == 'ExportRelease' ">Release</ApiConfiguration>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'ExportDebug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>portable</DebugType>
+    <Optimize>false</Optimize>
+    <DefineConstants>$(GodotDefineConstants);GODOT;DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'ExportRelease|AnyCPU' ">
+    <DebugType>portable</DebugType>
+    <Optimize>true</Optimize>
+    <DefineConstants>$(GodotDefineConstants);GODOT;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>portable</DebugType>
+    <Optimize>false</Optimize>
+    <DefineConstants>$(GodotDefineConstants);GODOT;DEBUG;TOOLS;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="GodotSharp">
+      <HintPath>$(ProjectDir)/.mono/assemblies/$(ApiConfiguration)/GodotSharp.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="GodotSharpEditor" Condition=" '$(Configuration)' == 'Debug' ">
+      <HintPath>$(ProjectDir)/.mono/assemblies/$(ApiConfiguration)/GodotSharpEditor.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Global.cs" />
+    <Compile Include="gui\Debug.cs" />
+    <Compile Include="gui\Score.cs" />
+    <Compile Include="gui\Stages.cs" />
+    <Compile Include="matches\Ball.cs" />
+    <Compile Include="matches\Field.cs" />
+    <Compile Include="matches\Match.cs" />
+    <Compile Include="menus\GameMenu.cs" />
+    <Compile Include="menus\MainMenu.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="robots\AIRobot.cs" />
+    <Compile Include="robots\components\DriveBase.cs" />
+    <Compile Include="robots\components\Hopper.cs" />
+    <Compile Include="robots\components\Intake.cs" />
+    <Compile Include="robots\components\RobotComponent.cs" />
+    <Compile Include="robots\components\Shooter.cs" />
+    <Compile Include="robots\components\ShooterStats.cs" />
+    <Compile Include="robots\Player.cs" />
+    <Compile Include="robots\Robot.cs" />
+    <Compile Include="scripts\AllianceStage.cs" />
+    <Compile Include="scripts\enums\Alliance.cs" />
+    <Compile Include="scripts\Constants.cs" />
+    <Compile Include="scripts\enums\CollisionLayers.cs" />
+    <Compile Include="scripts\enums\ColorWheelColor.cs" />
+    <Compile Include="scripts\enums\MatchMode.cs" />
+    <Compile Include="scripts\enums\ShootingState.cs" />
+    <Compile Include="scripts\enums\Stage.cs" />
+    <Compile Include="scripts\enums\StageState.cs" />
+    <Compile Include="scripts\matches\AllianceSummary.cs" />
+    <Compile Include="scripts\MatchState.cs" />
+    <Compile Include="scripts\RobotStatistics.cs" />
+    <Compile Include="scripts\ScoreKeeper.cs" />
+    <Compile Include="scripts\Signals.cs" />
+    <Compile Include="scripts\Statistics.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies">
+      <Version>1.0.0</Version>
+      <PrivateAssets>All</PrivateAssets>
+    </PackageReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+</Project>

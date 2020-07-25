@@ -1,0 +1,97 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://primitives/glowgon.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/2d_environnment.tres" type="Environment" id=2]
+[ext_resource path="res://shaders/tron.shader" type="Shader" id=3]
+[ext_resource path="res://icon.png" type="Texture" id=4]
+[ext_resource path="res://primitives/glowrect.tscn" type="PackedScene" id=5]
+
+[sub_resource type="ShaderMaterial" id=1]
+shader = ExtResource( 3 )
+shader_param/fill_color = Color( 0, 0, 0, 1 )
+shader_param/line_color = Color( 0, 0.254902, 0.54902, 1 )
+shader_param/line_thickness = 2.05
+shader_param/line_sharpness = 10.0
+shader_param/edge_subtract = 0.1
+shader_param/glow_strength = 1.3
+
+[sub_resource type="ShaderMaterial" id=3]
+shader = ExtResource( 3 )
+shader_param/fill_color = Color( 0, 0, 0, 1 )
+shader_param/line_color = Color( 0.556863, 0.113725, 0.0784314, 1 )
+shader_param/line_thickness = 2.05
+shader_param/line_sharpness = 10.0
+shader_param/edge_subtract = 0.1
+shader_param/glow_strength = 1.2
+
+[sub_resource type="ShaderMaterial" id=4]
+shader = ExtResource( 3 )
+shader_param/fill_color = Color( 0, 0, 0, 1 )
+shader_param/line_color = Color( 0.101961, 0.639216, 0.14902, 1 )
+shader_param/line_thickness = 2.05
+shader_param/line_sharpness = 10.0
+shader_param/edge_subtract = 0.1
+shader_param/glow_strength = 1.2
+
+[sub_resource type="ShaderMaterial" id=2]
+shader = ExtResource( 3 )
+shader_param/fill_color = Color( 0, 0, 0, 1 )
+shader_param/line_color = Color( 1, 1, 1, 1 )
+shader_param/line_thickness = 1.1
+shader_param/line_sharpness = 0.8
+shader_param/edge_subtract = 1.0
+shader_param/glow_strength = 1.0
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Glowgon" parent="." instance=ExtResource( 1 )]
+position = Vector2( 200, 16 )
+
+[node name="Glowrect" parent="." instance=ExtResource( 5 )]
+margin_left = 187.2
+margin_top = 48.0
+margin_right = 227.2
+margin_bottom = 88.0
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+material = SubResource( 1 )
+margin_left = 56.0
+margin_top = 7.85626
+margin_right = 96.0
+margin_bottom = 47.8563
+color = Color( 0.443137, 0.133333, 0.133333, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect3" type="ColorRect" parent="."]
+material = SubResource( 3 )
+margin_left = 56.0
+margin_top = 56.0
+margin_right = 96.0
+margin_bottom = 96.0
+color = Color( 0.443137, 0.133333, 0.133333, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect4" type="ColorRect" parent="."]
+material = SubResource( 4 )
+margin_left = 104.144
+margin_top = 55.8563
+margin_right = 144.144
+margin_bottom = 95.8563
+color = Color( 0.443137, 0.133333, 0.133333, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource( 2 )
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+material = SubResource( 2 )
+position = Vector2( -56, 40 )
+scale = Vector2( 1.28571, 1.5 )
+texture = ExtResource( 4 )
+polygon = PoolVector2Array( 64, -112, 120, -112, 180.444, -85.3333, 120, -64, 105.778, -32, 64, -64 )
