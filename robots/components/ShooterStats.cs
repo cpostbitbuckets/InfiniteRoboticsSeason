@@ -25,5 +25,5 @@ public class ShooterStats
     /// Time spent cooling down between shots
     /// </summary>
     /// <value></value>
-    public float CooldownTime { get; set; } = .1f;
+    public float CooldownTime { get; set; } = .5f;
 }

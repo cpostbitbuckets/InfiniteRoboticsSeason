@@ -78,7 +78,6 @@
     <Compile Include="scripts\enums\CollisionLayers.cs" />
     <Compile Include="scripts\enums\ColorWheelColor.cs" />
     <Compile Include="scripts\enums\MatchMode.cs" />
-    <Compile Include="scripts\enums\ShootingState.cs" />
     <Compile Include="scripts\enums\Stage.cs" />
     <Compile Include="scripts\enums\StageState.cs" />
     <Compile Include="scripts\matches\AllianceSummary.cs" />

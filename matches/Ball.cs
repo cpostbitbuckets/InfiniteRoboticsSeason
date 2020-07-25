@@ -18,15 +18,20 @@ public class Ball : RigidBody2D
 		{
 			FireBallEffect.Visible = true;
 		}
-		
+
+		Connect("body_entered", this, nameof(OnBodyEntered));
 	}
 
-	void OnBallBodyEntered(Node2D body)
+	/// <summary>
+	/// this is called whenever our ball collides with another physics body
+	/// </summary>
+	/// <param name="body"></param>
+	void OnBodyEntered(Node2D body)
 	{
 		GD.Print($"body collided with ball: {body}");
 		if (body == null || body != Shooter)
 		{
-			CallDeferred("RemoveShotBallGroup");
+			CallDeferred(nameof(RemoveShotBallGroup));
 		}
 	}
 

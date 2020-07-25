@@ -8,7 +8,7 @@ public class Constants
 
     // matches are 2.5 minutes long with a 15 second auto period and 30 second
     // endgame
-    public const int MatchTime = 5;
+    public const int MatchTime = 150;
     public const int AutoTime = 15;
     public const int EndGameTime = 30;
 
