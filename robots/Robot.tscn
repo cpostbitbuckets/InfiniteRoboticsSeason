@@ -23,4 +23,4 @@ shape = SubResource( 1 )
 position = Vector2( 31.8847, 0 )
 
 [node name="Shooter" parent="." instance=ExtResource( 3 )]
-position = Vector2( 27.0188, 0 )
+position = Vector2( 17, 0 )

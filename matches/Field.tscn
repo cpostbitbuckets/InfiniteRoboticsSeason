@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://matches/Field.cs" type="Script" id=1]
+[ext_resource path="res://matches/color_wheel.tscn" type="PackedScene" id=2]
 [ext_resource path="res://matches/ball.tscn" type="PackedScene" id=4]
 [ext_resource path="res://assets/2020-Field-Wide.png" type="Texture" id=5]
 
@@ -347,11 +348,13 @@ default_color = Color( 1, 1, 1, 1 )
 [node name="ColorWheels" type="Node2D" parent="."]
 z_index = 2
 
-[node name="RedColorWheelPolygon" type="Polygon2D" parent="ColorWheels"]
-polygon = PoolVector2Array( 667, 26, 667, 112, 605, 112, 605, 26 )
+[node name="RedColorWheel" parent="ColorWheels" instance=ExtResource( 2 )]
+position = Vector2( 636, 68 )
+z_index = 1
 
-[node name="BlueColorWheelPolygon" type="Polygon2D" parent="ColorWheels"]
-polygon = PoolVector2Array( 532, 429, 532, 512, 470, 512, 470, 429 )
+[node name="BlueColorWheel" parent="ColorWheels" instance=ExtResource( 2 )]
+position = Vector2( 501, 470 )
+z_index = 1
 
 [node name="GroundArea" type="Area2D" parent="."]
 visible = false
