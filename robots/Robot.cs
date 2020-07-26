@@ -89,6 +89,7 @@ public class Robot : KinematicBody2D
 	protected void Shooting(bool shooting)
 	{
 		Shooter.Shooting = shooting;
+		Hopper.Feeding = shooting;
 	}
 
 	public void TryIntakeBall(Ball ball)

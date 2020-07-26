@@ -1,7 +1,23 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://robots/components/Hopper.cs" type="Script" id=1]
 [ext_resource path="res://primitives/ball_sprite.tscn" type="PackedScene" id=2]
+
+[sub_resource type="Animation" id=1]
+resource_name = "FeedBalls"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 360.0 ]
+}
 
 [node name="Hopper" type="Node2D"]
 script = ExtResource( 1 )
@@ -22,3 +38,6 @@ position = Vector2( 0.202591, 11.171 )
 [node name="Ball5" parent="." instance=ExtResource( 2 )]
 visible = false
 position = Vector2( 10.9684, 4.48554 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/FeedBalls = SubResource( 1 )

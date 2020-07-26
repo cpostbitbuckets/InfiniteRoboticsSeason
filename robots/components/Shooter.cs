@@ -18,7 +18,7 @@ public class Shooter : RobotComponent
 	}
 
 	public delegate void TryShoot(Shooter shooter);
-	public static event TryShoot TryShootEvent;
+	public event TryShoot TryShootEvent;
 
 	public ShooterStats Stats { get; set; } = new ShooterStats();
 

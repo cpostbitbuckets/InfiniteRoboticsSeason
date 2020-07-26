@@ -4,7 +4,7 @@ using System;
 [Tool]
 public class Hopper : RobotComponent
 {
-	#region exports
+	#region drawing exports
 	[Export]
 	Color HopperColor { get; set; } = new Color("FFFFFF");
 
@@ -19,7 +19,9 @@ public class Hopper : RobotComponent
 
 	#endregion
 
+	#region Hopper stats
 	private int ballsInHopper = 3;
+
 	[Export]
 	public int BallsInHopper
 	{
@@ -30,11 +32,45 @@ public class Hopper : RobotComponent
 	[Export]
 	int Capacity { get; set; } = 5;
 
+	#endregion
+
+	private bool feeding = false;
+	public bool Feeding
+	{
+		get => Feeding;
+		set
+		{
+			feeding = value;
+			if (animationPlayer != null)
+			{
+				GD.Print($"Feeding ${feeding} and updating animation player");
+				if (feeding)
+				{
+					animationPlayer.Play();
+				}
+				else
+				{
+					animationPlayer.Stop();
+				}
+			}
+		}
+	}
+
 	private const int segments = 16;
+
+	private AnimationPlayer animationPlayer;
 
 	public override void _Ready()
 	{
+		animationPlayer = GetNode<AnimationPlayer>("AnimationPlayer");
+		animationPlayer.CurrentAnimation = "FeedBalls";
+		animationPlayer.Stop();
 		ShowHopperBalls();
+	}
+
+	public override void _Process(float delta)
+	{
+
 	}
 
 	public override void _Draw()
