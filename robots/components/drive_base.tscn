@@ -71,3 +71,4 @@ __meta__ = {
 [node name="Glowgon" parent="." instance=ExtResource( 2 )]
 polygon = PoolVector2Array( -24, -24, 24, -24, 24, 24, -24, 24 )
 line_width = 8.0
+glow_intensity = 1.0

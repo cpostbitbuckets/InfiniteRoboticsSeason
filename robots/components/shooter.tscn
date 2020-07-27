@@ -1,6 +1,5 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://assets/Robot/shooter2.png" type="Texture" id=1]
 [ext_resource path="res://robots/components/Shooter.cs" type="Script" id=2]
 [ext_resource path="res://assets/sparkle.png" type="Texture" id=3]
 
@@ -40,14 +39,6 @@ color_ramp = SubResource( 3 )
 
 [node name="Shooter" type="Node2D"]
 script = ExtResource( 2 )
-
-[node name="ShooterSprite" type="Sprite" parent="."]
-visible = false
-position = Vector2( -16, 0 )
-rotation = 1.5708
-scale = Vector2( 0.115588, 0.115588 )
-texture = ExtResource( 1 )
-region_rect = Rect2( 867.807, 300.165, 0, 1.67654 )
 
 [node name="Line2D" type="Line2D" parent="."]
 position = Vector2( 0, -4 )
