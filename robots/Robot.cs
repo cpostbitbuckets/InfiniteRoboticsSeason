@@ -88,7 +88,14 @@ public class Robot : KinematicBody2D
 
 	protected void Shooting(bool shooting)
 	{
-		Shooter.Shooting = shooting;
+		if (shooting)
+		{
+			Shooter.StartShooting();
+		}
+		else
+		{
+			Shooter.StopShooting();
+		}
 		Hopper.Feeding = shooting;
 	}
 
@@ -117,8 +124,8 @@ public class Robot : KinematicBody2D
 	#region Events
 	protected void PublishShootEvent()
 	{
+		GD.Print($"Robot {TeamName} publishing shoot event");
 		ShootEvent?.Invoke(this, GlobalPosition + Vector2.Right.Rotated(GlobalRotation) * 32, Vector2.Right.Rotated(GlobalRotation), Shooter.Stats.Force);
-
 	}
 	#endregion
 

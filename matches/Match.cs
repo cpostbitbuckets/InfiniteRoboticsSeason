@@ -53,6 +53,7 @@ public class Match : Node2D
 
 	private void BallShot(Robot robot, Vector2 globalPosition, Vector2 direction, float force)
 	{
+		GD.Print("Ball Shot.");
 		Ball ball = (Ball)BallScene.Instance();
 
 		// this is a shot that could go in a goal

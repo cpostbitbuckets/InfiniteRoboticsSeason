@@ -28,7 +28,7 @@ public class Ball : RigidBody2D
 	/// <param name="body"></param>
 	void OnBodyEntered(Node2D body)
 	{
-		GD.Print($"body collided with ball: {body}");
+		// GD.Print($"body collided with ball: {body}");
 		if (body == null || body != Shooter)
 		{
 			CallDeferred(nameof(RemoveShotBallGroup));
