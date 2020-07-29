@@ -37,11 +37,11 @@ public class Player : Robot
 
 		if (Input.IsActionPressed("forward"))
 		{
-			VelocityChange = MaxSpeed;
+			VelocityChange = -MaxSpeed;
 		}
 		else if (Input.IsActionPressed("backward"))
 		{
-			VelocityChange = -MaxSpeed;
+			VelocityChange = MaxSpeed;
 		}
 		else
 		{
@@ -70,6 +70,6 @@ public class Player : Robot
 	protected override void Control(float delta)
 	{
 		Rotation += RotationSpeed * RotationDir * delta;
-		Velocity = new Vector2(VelocityChange, 0).Rotated(Rotation);
+		Velocity = new Vector2(0, VelocityChange).Rotated(Rotation);
 	}
 }

@@ -87,6 +87,7 @@
     <Compile Include="scripts\ScoreKeeper.cs" />
     <Compile Include="scripts\Signals.cs" />
     <Compile Include="scripts\Statistics.cs" />
+    <Compile Include="tests\MouseDraw.cs" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies">

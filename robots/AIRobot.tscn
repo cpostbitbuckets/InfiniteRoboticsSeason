@@ -1,10 +1,31 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://robots/robot.tscn" type="PackedScene" id=1]
 [ext_resource path="res://robots/AIRobot.cs" type="Script" id=2]
+[ext_resource path="res://robots/AIPathMover.gd" type="Script" id=3]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 90.1959
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 20.631, 7.26894 )
 
 [node name="AIRobot" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
 
-[node name="CollisionShape2D" parent="." index="0"]
-position = Vector2( 5.4104, 0.515266 )
+[node name="PathMover" type="Node2D" parent="." index="5"]
+script = ExtResource( 3 )
+
+[node name="BallSensor" type="Area2D" parent="." index="6"]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BallSensor" index="0"]
+shape = SubResource( 1 )
+
+[node name="ScorePickupSensor" type="Area2D" parent="." index="7"]
+collision_layer = 7
+collision_mask = 7
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ScorePickupSensor" index="0"]
+position = Vector2( -1.02888, -35.4963 )
+shape = SubResource( 2 )

@@ -64,11 +64,8 @@ public class Robot : KinematicBody2D
 
 	public override void _PhysicsProcess(float delta)
 	{
-		if (!Engine.EditorHint)
-		{
-			Control(delta);
-			MoveAndSlide(Velocity);
-		}
+		Control(delta);
+		MoveAndSlide(Velocity);
 	}
 
 	/// <summary>
@@ -125,7 +122,7 @@ public class Robot : KinematicBody2D
 	protected void PublishShootEvent()
 	{
 		GD.Print($"Robot {TeamName} publishing shoot event");
-		ShootEvent?.Invoke(this, GlobalPosition + Vector2.Right.Rotated(GlobalRotation) * 32, Vector2.Right.Rotated(GlobalRotation), Shooter.Stats.Force);
+		ShootEvent?.Invoke(this, GlobalPosition + Vector2.Up.Rotated(GlobalRotation) * 32, Vector2.Up.Rotated(GlobalRotation), Shooter.Stats.Force);
 	}
 	#endregion
 

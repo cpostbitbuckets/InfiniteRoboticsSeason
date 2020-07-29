@@ -1,7 +1,8 @@
 using Godot;
 using System;
 
-[Tool]
+// [Tool]
+// Leaving this as a tool node crashes the editor when you rename a node in match, player, robot, etc.
 public class Hopper : RobotComponent
 {
 	#region drawing exports
@@ -63,8 +64,11 @@ public class Hopper : RobotComponent
 	public override void _Ready()
 	{
 		animationPlayer = GetNode<AnimationPlayer>("AnimationPlayer");
-		animationPlayer.CurrentAnimation = "FeedBalls";
-		animationPlayer.Stop();
+		if (animationPlayer != null)
+		{
+			animationPlayer.CurrentAnimation = "FeedBalls";
+			animationPlayer.Stop();
+		}
 		ShowHopperBalls();
 	}
 
@@ -83,7 +87,10 @@ public class Hopper : RobotComponent
 		for (int i = 1; i <= 5; i++)
 		{
 			var sprite = GetNode<Sprite>($"Ball{i}");
-			sprite.Visible = BallsInHopper >= i;
+			if (sprite != null)
+			{
+				sprite.Visible = BallsInHopper >= i;
+			}
 		}
 	}
 

@@ -24,9 +24,13 @@ position = Vector2( 0, 128 )
 
 [node name="Player" parent="." instance=ExtResource( 4 )]
 position = Vector2( 857.518, 501.262 )
+rotation = 1.5708
 
 [node name="RedAIRobot1" parent="." instance=ExtResource( 9 )]
 position = Vector2( 275.183, 296.062 )
+rotation = 1.5708
+TeamNumber = 1234
+TeamName = "AI Bot"
 Alliance = 1
 
 [node name="ScoreKeeper" type="Node" parent="."]

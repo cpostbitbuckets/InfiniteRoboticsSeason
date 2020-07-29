@@ -9,60 +9,60 @@ script = ExtResource( 1 )
 [node name="Wheels" type="Node2D" parent="."]
 
 [node name="RightRearWheel" type="ColorRect" parent="Wheels"]
-margin_left = -4.0
-margin_top = 22.0
-margin_right = 4.0
-margin_bottom = 30.0
+margin_left = 23.0
+margin_top = 16.0
+margin_right = 31.0
+margin_bottom = 24.0
 color = Color( 0.486275, 0.486275, 0.486275, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="RightMiddleWheel" type="ColorRect" parent="Wheels"]
-margin_left = -26.0
-margin_top = 22.0
-margin_right = -18.0
-margin_bottom = 30.0
+margin_left = 23.0
+margin_top = -4.0
+margin_right = 31.0
+margin_bottom = 4.0
 color = Color( 0.486275, 0.486275, 0.486275, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="RightFrontWheel" type="ColorRect" parent="Wheels"]
-margin_left = 17.0
-margin_top = 22.0
-margin_right = 25.0
-margin_bottom = 30.0
+margin_left = 23.0
+margin_top = -24.0
+margin_right = 31.0
+margin_bottom = -16.0
 color = Color( 0.486275, 0.486275, 0.486275, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="LeftRearWheel" type="ColorRect" parent="Wheels"]
-margin_left = -26.0
-margin_top = -31.0
-margin_right = -18.0
-margin_bottom = -23.0
+margin_left = -31.0
+margin_top = 16.0
+margin_right = -23.0
+margin_bottom = 24.0
 color = Color( 0.486275, 0.486275, 0.486275, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="LeftMiddleWheel" type="ColorRect" parent="Wheels"]
-margin_left = -4.0
-margin_top = -31.0
-margin_right = 4.0
-margin_bottom = -23.0
+margin_left = -31.0
+margin_top = -4.0
+margin_right = -23.0
+margin_bottom = 4.0
 color = Color( 0.486275, 0.486275, 0.486275, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="LeftFrontWheel" type="ColorRect" parent="Wheels"]
-margin_left = 17.0
-margin_top = -31.0
-margin_right = 25.0
-margin_bottom = -23.0
+margin_left = -31.0
+margin_top = -24.0
+margin_right = -23.0
+margin_bottom = -16.0
 color = Color( 0.486275, 0.486275, 0.486275, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -71,4 +71,3 @@ __meta__ = {
 [node name="Glowgon" parent="." instance=ExtResource( 2 )]
 polygon = PoolVector2Array( -24, -24, 24, -24, 24, 24, -24, 24 )
 line_width = 8.0
-glow_intensity = 1.0

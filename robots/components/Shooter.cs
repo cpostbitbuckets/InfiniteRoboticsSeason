@@ -10,7 +10,7 @@ using Stateless;
 /// </summary>
 public class Shooter : RobotComponent
 {
-	public enum State
+	public enum States
 	{
 		Idle,
 		Charging,
@@ -18,7 +18,7 @@ public class Shooter : RobotComponent
 		Cooldown
 	}
 
-	public enum Trigger
+	public enum Triggers
 	{
 		Idle,
 		StartShooting,
@@ -31,7 +31,7 @@ public class Shooter : RobotComponent
 
 	public ShooterStats Stats { get; set; } = new ShooterStats();
 
-	public State ShootingState { get; private set; } = State.Idle;
+	public States State { get; private set; } = States.Idle;
 
 	private Timer chargeTimer;
 
@@ -39,7 +39,7 @@ public class Shooter : RobotComponent
 
 	private Particles2D chargingEffect;
 
-	StateMachine<State, Trigger> machine;
+	StateMachine<States, Triggers> machine;
 
 	public override void _Ready()
 	{
@@ -54,32 +54,32 @@ public class Shooter : RobotComponent
 		cooldownTimer.Connect("timeout", this, nameof(OnCooldownTimerTiemout));
 
 		// create a new state machine
-		machine = new StateMachine<State, Trigger>(() => ShootingState, s => ShootingState = s);
+		machine = new StateMachine<States, Triggers>(() => State, s => State = s);
 
 		// the idle state starts charging the shooter when
 		// the StartShooting trigger is fired
-		machine.Configure(State.Idle)
-			.Permit(Trigger.StartShooting, State.Charging)
+		machine.Configure(States.Idle)
+			.Permit(Triggers.StartShooting, States.Charging)
 			.OnEntry(() => OnIdle());
 
 		// The charging state transitions to teh shooting state
 		// when complete
-		machine.Configure(State.Charging)
+		machine.Configure(States.Charging)
 			.OnEntry(() => OnCharge())
-			.Permit(Trigger.Idle, State.Idle)
-			.Permit(Trigger.Shoot, State.Shooting);
+			.Permit(Triggers.Idle, States.Idle)
+			.Permit(Triggers.Shoot, States.Shooting);
 
 		// The shooting state transitions to cooldown when done
-		machine.Configure(State.Shooting)
+		machine.Configure(States.Shooting)
 			.OnEntry(() => OnShoot())
-			.Permit(Trigger.Idle, State.Idle)
-			.Permit(Trigger.Cooldown, State.Cooldown);
+			.Permit(Triggers.Idle, States.Idle)
+			.Permit(Triggers.Cooldown, States.Cooldown);
 
 		// The cooldown state transitions to shooting again
-		machine.Configure(State.Cooldown)
+		machine.Configure(States.Cooldown)
 			.OnEntry(() => Cooldown())
-			.Permit(Trigger.Idle, State.Idle)
-			.Permit(Trigger.Shoot, State.Shooting);
+			.Permit(Triggers.Idle, States.Idle)
+			.Permit(Triggers.Shoot, States.Shooting);
 
 		machine.OnTransitioned(t => GD.Print($"OnTransitioned: {t.Source} -> {t.Destination} via {t.Trigger}({string.Join(", ", t.Parameters)})"));
 
@@ -88,12 +88,12 @@ public class Shooter : RobotComponent
 	public override void _Process(float delta)
 	{
 		// Adjust the particle effects based on how close we are to shooting
-		if (ShootingState == State.Charging)
+		if (State == States.Charging)
 		{
 			float timeLeftPercent = (chargeTimer.WaitTime - chargeTimer.TimeLeft) / chargeTimer.WaitTime;
 			chargingEffect.Scale = new Vector2(timeLeftPercent, timeLeftPercent);
 		}
-		if (ShootingState == State.Cooldown)
+		if (State == States.Cooldown)
 		{
 			float timeLeftPercent = (cooldownTimer.WaitTime - cooldownTimer.TimeLeft) / cooldownTimer.WaitTime;
 			chargingEffect.Scale = new Vector2(timeLeftPercent, timeLeftPercent);
@@ -102,12 +102,12 @@ public class Shooter : RobotComponent
 
 	public void StartShooting()
 	{
-		machine.Fire(Trigger.StartShooting);
+		machine.Fire(Triggers.StartShooting);
 	}
 
 	public void StopShooting()
 	{
-		machine.Fire(Trigger.Idle);
+		machine.Fire(Triggers.Idle);
 	}
 
 	protected virtual void OnIdle()
@@ -135,14 +135,14 @@ public class Shooter : RobotComponent
 	protected void OnChargeTimerTiemout()
 	{
 		// go to the next state
-		machine.Fire(Trigger.Shoot);
+		machine.Fire(Triggers.Shoot);
 	}
 
 	protected virtual void OnShoot()
 	{
 		// try and shoot a ball, then go to cooldown
 		PublishTryShootEvent();
-		machine.Fire(Trigger.Cooldown);
+		machine.Fire(Triggers.Cooldown);
 	}
 
 
@@ -158,7 +158,7 @@ public class Shooter : RobotComponent
 	protected void OnCooldownTimerTiemout()
 	{
 		// go to the next state
-		machine.Fire(Trigger.Shoot);
+		machine.Fire(Triggers.Shoot);
 	}
 
 	private void PublishTryShootEvent()
