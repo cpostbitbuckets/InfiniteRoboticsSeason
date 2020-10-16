@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://matches/MatchAlliance.cs" type="Script" id=1]
+
+[node name="RedAlliance" type="Node"]
+script = ExtResource( 1 )
+Alliance = 1
+
+[node name="LoadingBallTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="GivingBallTimer" type="Timer" parent="."]
+one_shot = true

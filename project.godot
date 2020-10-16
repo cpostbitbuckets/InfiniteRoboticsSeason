@@ -10,11 +10,6 @@ config_version=4
 
 _global_script_classes=[ {
 "base": "Reference",
-"class": "Enums",
-"language": "GDScript",
-"path": "res://scripts/Enums.gd"
-}, {
-"base": "Reference",
 "class": "GSAIAgentLocation",
 "language": "GDScript",
 "path": "res://addons/com.gdquest.godot-steering-ai-framework/GSAIAgentLocation.gd"
@@ -160,7 +155,6 @@ _global_script_classes=[ {
 "path": "res://addons/com.gdquest.godot-steering-ai-framework/GSAIUtils.gd"
 } ]
 _global_script_class_icons={
-"Enums": "",
 "GSAIAgentLocation": "",
 "GSAIArrive": "",
 "GSAIAvoidCollisions": "",
