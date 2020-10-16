@@ -1,5 +1,7 @@
 # Infinite Robotics Season
 
+![Screenshot](docs/images/screenshot1.png)
+
 ## Phase 1 - Top Down Robot Game
 
 - Top down field
