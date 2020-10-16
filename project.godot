@@ -195,7 +195,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Infinite Robotics Season"
-run/main_scene="res://matches/match.tscn"
+run/main_scene="res://main.tscn"
 boot_splash/bg_color=Color( 0.541176, 0.541176, 0.541176, 1 )
 config/icon="res://icon.png"
 
